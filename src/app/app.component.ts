@@ -17,6 +17,29 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+
+    // setValue must include all field in the form,
+    // and will overwrite all the existing value entered on the form
+    // this.signupForm .setValue(
+    //   {
+    //     userData: {
+    //       username: suggestedName,
+    //       email: ''
+    //     },
+    //     secret: 'pet',
+    //     gender: 'male',
+    //     questionAnswer: ''
+    //   }
+    // );
+
+    // whereas patchValue could only fill certain fields.
+    this.signupForm.form.patchValue(
+      {
+        userData: {
+          username: suggestedName
+        }
+      }
+    );
   }
 
   // onSubmit(form: NgForm) {
